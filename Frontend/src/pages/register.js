@@ -8,6 +8,8 @@ import Label from '@/components/Label'
 import Link from 'next/link'
 import { useAuth } from '@/hooks/auth'
 import { useState } from 'react'
+import { EyeIcon } from '@heroicons/react/solid'
+import { EyeOffIcon } from '@heroicons/react/solid'
 
 const Register = () => {
     const { register } = useAuth({
@@ -20,6 +22,7 @@ const Register = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState([])
+    const [passwordType, setPasswordType] = useState("password");
 
     const submitForm = event => {
         event.preventDefault()
@@ -33,7 +36,15 @@ const Register = () => {
             setErrors,
         })
     }
-
+    const togglePassword =()=>{
+        if(passwordType==="password")
+        {
+         setPasswordType("text")
+         return;
+        }
+        setPasswordType("password")
+        
+      }
     return (
         <GuestLayout>
             <AuthCard
@@ -91,12 +102,18 @@ const Register = () => {
                     </div>
 
                     {/* Password */}
-                    <div className="mt-4">
+                    <div className="mt-4 relative">
                         <Label htmlFor="password">Inserisci la password</Label>
-
+                        <div className=' absolute top-1/2 transform -translate-y-1/2 right-1 top-12' onClick={togglePassword}>
+                            {passwordType == "password" ? (
+                            <EyeIcon className="fill-[#0057FF] pointer-events-none w-6 h-6"  />
+                            ):
+                            (<EyeOffIcon className="fill-[#0057FF] pointer-events-none w-6 h-6"  />)
+                            }
+                        </div>
                         <Input
                             id="password"
-                            type="password"
+                            type={passwordType}
                             value={password}
                             className="block mt-1 w-full border-t-0 border-l-0 border-r-0 border-b-1 border-black rounded-none focus:rounded"
                             onChange={event => setPassword(event.target.value)}

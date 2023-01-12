@@ -10,6 +10,8 @@ import Link from 'next/link'
 import { useAuth } from '@/hooks/auth'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import { EyeIcon } from '@heroicons/react/solid'
+import { EyeOffIcon } from '@heroicons/react/solid'
 
 const Login = () => {
     const router = useRouter()
@@ -24,6 +26,7 @@ const Login = () => {
     const [shouldRemember, setShouldRemember] = useState(false)
     const [errors, setErrors] = useState([])
     const [status, setStatus] = useState(null)
+    const [passwordType, setPasswordType] = useState("password");
 
     useEffect(() => {
         if (router.query.reset?.length > 0 && errors.length === 0) {
@@ -44,7 +47,15 @@ const Login = () => {
             setStatus,
         })
     }
-
+    const togglePassword =()=>{
+        if(passwordType==="password")
+        {
+         setPasswordType("text")
+         return;
+        }
+        setPasswordType("password")
+        
+      }
     return (
         <GuestLayout>
             <AuthCard
@@ -55,9 +66,9 @@ const Login = () => {
                     
                 <form onSubmit={submitForm}>
                     {/* Email Address */}
-                    <div className="mt-6">
+                    <div className="mt-6 relative ">
                         <Label htmlFor="email" className='text-black '>Inserisci l’e-mail</Label>
-
+                        
                         <Input
                             id="email"
                             type="email"
@@ -72,12 +83,19 @@ const Login = () => {
                     </div>
 
                     {/* Password */}
-                    <div className="mt-4">
+                    <div className="mt-4 relative">
                         <Label htmlFor="password" className='text-black '>Inserisci la password</Label>
+                        <div className=' absolute top-1/2 transform -translate-y-1/2 right-1 top-12' onClick={togglePassword}>
+                            {passwordType == "password" ? (
+                            <EyeIcon className="fill-[#0057FF] pointer-events-none w-6 h-6"  />
+                            ):
+                            (<EyeOffIcon className="fill-[#0057FF] pointer-events-none w-6 h-6"  />)
+                            }
+                        </div>
 
                         <Input
                             id="password"
-                            type="password"
+                            type={passwordType}
                             value={password}
                             className="block mt-1 w-full border-t-0 border-l-0 border-r-0 border-b-1 border-black rounded-none focus:rounded" 
                             onChange={event => setPassword(event.target.value)}
