@@ -56,13 +56,13 @@ const Login = () => {
                 <form onSubmit={submitForm}>
                     {/* Email Address */}
                     <div className="mt-6">
-                        <Label htmlFor="email" className='text-black text-[13px] font-bold"'>Inserisci l’e-mail</Label>
+                        <Label htmlFor="email" className='text-black '>Inserisci l’e-mail</Label>
 
                         <Input
                             id="email"
                             type="email"
                             value={email}
-                            className="block mt-1 w-full"
+                            className="block mt-1 w-full border-t-0 border-l-0 border-r-0 border-b-1 border-black rounded-none focus:rounded"
                             onChange={event => setEmail(event.target.value)}
                             required
                             autoFocus
@@ -73,13 +73,13 @@ const Login = () => {
 
                     {/* Password */}
                     <div className="mt-4">
-                        <Label htmlFor="password" className='text-black text-[13px] font-bold"'>Inserisci la password</Label>
+                        <Label htmlFor="password" className='text-black '>Inserisci la password</Label>
 
                         <Input
                             id="password"
                             type="password"
                             value={password}
-                            className="block mt-1 w-full"
+                            className="block mt-1 w-full border-t-0 border-l-0 border-r-0 border-b-1 border-black rounded-none focus:rounded" 
                             onChange={event => setPassword(event.target.value)}
                             required
                             autoComplete="current-password"
@@ -90,7 +90,7 @@ const Login = () => {
                             className="mt-2"
                         />
                     </div>
-
+                    
                     {/* Remember Me */}
                     {/* <div className="block mt-4">
                         <label

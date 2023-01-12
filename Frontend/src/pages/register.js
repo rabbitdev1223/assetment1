@@ -48,7 +48,7 @@ const Register = () => {
                             id="firstName"
                             type="text"
                             value={firstName}
-                            className="block mt-1 w-full"
+                            className="block mt-1 w-full border-t-0 border-l-0 border-r-0 border-b-1 border-black rounded-none focus:rounded"
                             onChange={event => setFirstName(event.target.value)}
                             required
                             autoFocus
@@ -65,7 +65,7 @@ const Register = () => {
                             id="lastName"
                             type="text"
                             value={lastName}
-                            className="block mt-1 w-full"
+                            className="block mt-1 w-full border-t-0 border-l-0 border-r-0 border-b-1 border-black rounded-none focus:rounded"
                             onChange={event => setLastName(event.target.value)}
                             required
                             autoFocus
@@ -82,7 +82,7 @@ const Register = () => {
                             id="email"
                             type="email"
                             value={email}
-                            className="block mt-1 w-full"
+                            className="block mt-1 w-full border-t-0 border-l-0 border-r-0 border-b-1 border-black rounded-none focus:rounded"
                             onChange={event => setEmail(event.target.value)}
                             required
                         />
@@ -98,7 +98,7 @@ const Register = () => {
                             id="password"
                             type="password"
                             value={password}
-                            className="block mt-1 w-full"
+                            className="block mt-1 w-full border-t-0 border-l-0 border-r-0 border-b-1 border-black rounded-none focus:rounded"
                             onChange={event => setPassword(event.target.value)}
                             required
                             autoComplete="new-password"

@@ -1,6 +1,6 @@
 const Label = ({ className, children, ...props }) => (
     <label
-        className={`${className} block `}
+        className={`${className} block font-black`}
         {...props}>
         {children}
     </label>
