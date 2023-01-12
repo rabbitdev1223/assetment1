@@ -42,5 +42,24 @@ class DatabaseSeeder extends Seeder
             'email' => 'dgipolga@edume.me',
             'password' => Hash::make('EdusognoGia'),
         ]);
+
+      
+        \App\Models\Eventi::create([
+            "attendees" => 'ulysses200915@varen8.com,qmonkey14@falixiao.com,mavbafpcmq@hitbase.net',
+            'nome_evento' => 'Test Edusogno 1',
+            'data_evento' => "2022-10-13 14:00"
+        ]);
+
+        \App\Models\Eventi::create([
+            "attendees" => 'dgipolga@edume.me,qmonkey14@falixiao.com,mavbafpcmq@hitbase.net',
+            'nome_evento' => 'Test Edusogno 2',
+            'data_evento' => "2022-10-15 19:00"
+        ]);
+
+        \App\Models\Eventi::create([
+            "attendees" => 'dgipolga@edume.me,ulysses200915@varen8.com,mavbafpcmq@hitbase.net',
+            'nome_evento' => 'Test Edusogno 3',
+            'data_evento' => "2022-10-15 19:00"
+        ]);
     }
 }
